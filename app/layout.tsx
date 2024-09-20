@@ -1,5 +1,7 @@
 import { ClerkProvider } from '@clerk/nextjs'
 
+import { QueryProvider } from '@/providers/query-provider';
+
 import "./globals.css";
 
 export default function RootLayout({
@@ -11,7 +13,9 @@ export default function RootLayout({
     <ClerkProvider afterSignOutUrl="/">
       <html lang="en">
         <body>
-          {children}
+          <QueryProvider>
+            {children}
+          </QueryProvider>
         </body>
       </html>
     </ClerkProvider>
